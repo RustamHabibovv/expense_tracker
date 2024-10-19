@@ -1,3 +1,4 @@
+import 'package:expense_tracker/pages/budget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,13 +10,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-        
-        ),
-      ),
+      title: 'Expense Tracker',
+        theme: ThemeData(colorScheme: ColorScheme.light(surface: Colors.grey.shade200, error: Colors.red,
+       primary: Colors.blue, onPrimary: Colors.white),
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.greenAccent,)),
+      home: const BudgetPage(),
+    
     );
   }
 }
