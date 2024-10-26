@@ -7,74 +7,69 @@ class BudgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+
       appBar: AppBar(
-        elevation: 8,
+        elevation: 0,
         shadowColor: Colors.black,
-        toolbarHeight: 120,
+        toolbarHeight: 40,
+        leading: const Icon(Icons.wallet),
+        titleSpacing: 0,
+        title: const Text('Budget',style: TextStyle(fontWeight: FontWeight.bold),),
         
         
-        flexibleSpace:  Container(
-          
-          padding: const EdgeInsets.only(top: 30, left: 16),
-          
-          child: 
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.account_balance_outlined,
-                      size: 28,
-                    ),
-                    SizedBox(width: 8,),
-                    Text('Budget',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 20,
-                    ),),
-                  ],
-                ),
-                SizedBox(height: 16,),
-                Row(
-                  children: [
-                    SizedBox(width: 26,),
-                    Text('EXPENSE',style: TextStyle(fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                      fontSize: 15,),),
-                    SizedBox(  width: 60,),
-                    Text('INCOME',style: TextStyle(fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                      fontSize: 15,),),
-                    SizedBox(width: 60,),
-                    Text('TOTAL',style: TextStyle(fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                      fontSize: 15,),)
-
-                  ],
-                ),
-                SizedBox(height: 4,),
-                Row(
-                  children: [
-                    SizedBox(width: 24,),
-                    Text('\$4,000.50',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold, fontSize: 16)),
-                    SizedBox(width: 54),
-                    Text('\$7,600',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontSize: 16)),
-                    SizedBox(width: 60,),
-                     Text('\$3,600',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontSize: 16)),
-
-
-                  ],
-                )
-              ],
-            ),
-          
-        ),
-        
-
-
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height/3-30,
+          decoration:  BoxDecoration(
+            color: Colors.lightBlue,
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: const Column(  
+            children: [
+              SizedBox(height: 16,),
+              Text('Total Balance',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
+              
+              Text('\$ 4500.00', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 40),),
+
+              Padding(
+                padding: EdgeInsets.only(top: 20, left: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('Income',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                        Text('\$ 4000.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
+                      ],
+                    ),
+
+                    
+                    Padding(
+                      padding: EdgeInsets.only(right: 16),
+                      child: Column(
+                        
+                        children: [
+                          Text('Expenses',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                          Text('\$ 1500.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+              )
+              
+            ],  
+          ),
+        ),
+      ),
+      
+
       bottomNavigationBar: BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -92,10 +87,7 @@ class BudgetPage extends StatelessWidget {
         onPressed: () {},
         shape: const CircleBorder(),
         child: const Icon(Icons.add),
-
-
-      
-      
+ 
       ),
 
 

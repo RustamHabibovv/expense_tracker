@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
       title: 'Expense Tracker',
         theme: ThemeData(colorScheme: ColorScheme.light(surface: Colors.grey.shade200, error: Colors.red,
        primary: Colors.blue, onPrimary: Colors.white),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.greenAccent,)),
+        appBarTheme:  AppBarTheme(backgroundColor: Colors.grey.shade200,)),
       home: const BudgetPage(),
     
     );
