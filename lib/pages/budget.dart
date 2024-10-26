@@ -20,53 +20,66 @@ class BudgetPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height/3-30,
-          decoration:  BoxDecoration(
-            color: Colors.lightBlue,
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: const Column(  
-            children: [
-              SizedBox(height: 16,),
-              Text('Total Balance',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-              
-              Text('\$ 4500.00', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 40),),
-
-              Padding(
-                padding: EdgeInsets.only(top: 20, left: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height/3-30,
+              decoration:  BoxDecoration(
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: const Column(  
+                children: [
+                  SizedBox(height: 16,),
+                  Text('Total Balance',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
+                  
+                  Text('\$ 4500.00', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 40),),
+            
+                  Padding(
+                    padding: EdgeInsets.only(top: 20, left: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    
                       children: [
-                        Text('Income',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
-                        Text('\$ 4000.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Income',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                            Text('\$ 4000.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
+                          ],
+                        ),
+            
+                        
+                        Padding(
+                          padding: EdgeInsets.only(right: 16),
+                          child: Column(
+                            
+                            children: [
+                              Text('Expenses',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                              Text('\$ 1500.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
+                            ],
+                          ),
+                        )
+            
                       ],
                     ),
-
-                    
-                    Padding(
-                      padding: EdgeInsets.only(right: 16),
-                      child: Column(
-                        
-                        children: [
-                          Text('Expenses',style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
-                          Text('\$ 1500.00',style:TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20))
-                        ],
-                      ),
-                    )
-
-                  ],
-                ),
-              )
-              
-            ],  
-          ),
+                  )
+                  
+                ],  
+              ),
+            ),
+            const SizedBox(height: 40,),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Transactions',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                Text('View All',style: TextStyle(fontSize: 14),)
+              ],
+            )
+          ],
         ),
+        
       ),
       
 
