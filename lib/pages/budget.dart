@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/data/data.dart';
 import 'package:expense_tracker/pages/stats.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class BudgetPage extends StatefulWidget {
   const BudgetPage({super.key});
@@ -15,13 +17,13 @@ class _BudgetPageState extends State<BudgetPage> {
   // List of pages for navigation
   final List<Widget> _pages = [
     BudgetScreen(),
-    StatsScreen(),
+    const StatsScreen(),
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  // Method to return AppBar based on current page
+  PreferredSizeWidget _buildAppBar() {
+    if (_currentIndex == 0) {
+      return AppBar(
         elevation: 0,
         shadowColor: Colors.black,
         toolbarHeight: 40,
@@ -31,10 +33,31 @@ class _BudgetPageState extends State<BudgetPage> {
           'Budget',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-      ),
+      );
+    } else {
+      return AppBar(
+        elevation: 0,
+        shadowColor: Colors.black,
+        toolbarHeight: 40,
+        leading: const Icon(Icons.bar_chart),
+        titleSpacing: 0,
+        title: const Text(
+          'Statistics',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       appBar: _buildAppBar(),
+     
       body: _pages[_currentIndex], // Display the current page
 
       bottomNavigationBar: BottomNavigationBar(
+        
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -65,10 +88,12 @@ class _BudgetPageState extends State<BudgetPage> {
 class BudgetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
+          
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height / 3 - 30,
